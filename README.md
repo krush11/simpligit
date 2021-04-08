@@ -9,8 +9,8 @@
 ![NPM](https://img.shields.io/npm/l/simpligit)
 ![npm](https://img.shields.io/npm/dt/simpligit)
 
-A guided CLI for git. A tool to aid new developers to use git till they are familiar with git.
-
+A guided CLI for git. A tool to aid new developers to use git till they are familiar with git.  
+<b>Note: This package is still under development. The features are usable but there exists lot of features to be added and debugging to be done</b>
 ## Installation
 1. Using npm
 ```bash
