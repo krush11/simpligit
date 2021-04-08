@@ -11,7 +11,10 @@ export function initiate_command(input) {
         execute.commit();
     else if (input == 5)
         execute.push_code();
-    // else if (input == 6)
+    else if (input == 6)
+        execute.pull_code();
     else if (input == 7)
         process.exit(0);
+
+    process.exit(0);
 };

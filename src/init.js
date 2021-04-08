@@ -1,10 +1,11 @@
 const colors = require('colors');
-const readline = require('readline');
+import readline from 'readline-promise';
 const Commands = require('./commands');
 
 const rl = readline.createInterface({
     input: process.stdin,
-    output: process.stdout
+    output: process.stdout,
+    terminal: true
 });
 
 export function intro() {
@@ -20,11 +21,11 @@ export function intro() {
     console.log("This is SimpliGit!! A guided CLI for git.\nA tool to aid new developers to use git till they are familiar with git.");
 };
 
-export async function commands_list() {
+export function commands_list() {
     handle_user_input();
-    await rl.question("\nSelect an option: ", (input) => {
+    rl.questionAsync('Select an option: ').then(answer => {
         rl.close();
-        Commands.initiate_command(input);
+        Commands.initiate_command(answer);
     });
 };
 

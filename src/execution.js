@@ -1,21 +1,39 @@
 const shell = require('shelljs');
-const _init = require('./init');
+import readline from 'readline-promise';
 
-const rl = require('readline');
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout,
+    terminal: true
+});
 
 export function init() {
     var command = "git init";
-    console.log(`Command Executed: ${command}`.red);
+    console.log(`Command Executed: ${command}`.brightBlue);
     shell.exec(`${command}`, (code, stdout, stderr) => {
+        console.log(stdout);
         if (stderr) {
             console.log(`Error: ${stderr}`);
         }
     });
 };
 
+export function add_origin() {
+    rl.questionAsync('Enter remote url: ').then(name => {
+        var command = `git remote add origin ${name}`;
+        console.log(`Command Executed: ${command}`.brightBlue);
+        shell.exec(`${command}`, (code, stdout, stderr) => {
+            console.log(1);
+            if (stderr) {
+                console.log(`Error: ${stderr}`);
+            }
+        });
+    });
+};
+
 export function add_all() {
     var command = "git add .";
-    console.log(`Command Executed: ${command}`.red);
+    console.log(`Command Executed: ${command}`.brightBlue);
     shell.exec(`${command}`, (code, stdout, stderr) => {
         if (stderr) {
             console.log(`Error: ${stderr}`);
@@ -24,22 +42,64 @@ export function add_all() {
 };
 
 export function add_specifics() {
-    rl.question('List all the files you need to stage differentiated by space(w.r.t the .git parent directory):', (name) => {
+    rl.questionAsync('List all the files w.r.t to package: ').then(name => {
         var command = `git add ${name}`;
-        console.log(`Command Executed: ${command}`.red);
-        shell.exec(`git add ${name}`, (code, stdout, stderr) => {
+        console.log(`Command Executed: ${command}`.brightBlue);
+        shell.exec(`${command}`, (code, stdout, stderr) => {
             if (stderr) {
                 console.log(`Error: ${stderr}`);
             }
         });
-        rl.close();
     });
 };
 
 export function commit() {
-
+    rl.questionAsync('Enter commit message: ').then(name => {
+        var command = `git commit -m ${name}`;
+        console.log(`Command Executed: ${command}`.brightBlue);
+        shell.exec(`${command}`, (code, stdout, stderr) => {
+            if (stderr) {
+                console.log(`Error: ${stderr}`);
+            }
+        });
+    });
 };
 
 export function push_code() {
-
+    rl.questionAsync('Enter remote branch: ').then(name => {
+        var command = `git push origin ${name}`;
+        console.log(`Command Executed: ${command}`.brightBlue);
+        shell.exec(`${command}`, (code, stdout, stderr) => {
+            if (stderr) {
+                console.log(`Error: ${stderr}`);
+            }
+        });
+    });
 };
+
+export function pull_code() {
+    rl.question('Enter remote branch', (name) => {
+        var command = `git pull origin ${name}`;
+        console.log(`Command Executed: ${command}`.brightBlue);
+        shell.exec(`${command}`, (code, stdout, stderr) => {
+            if (stderr) {
+                console.log(`Error: ${stderr}`);
+            }
+        });
+    });
+};
+
+// ****************************************
+// A SKELETON FUNCTION TO ADD MORE COMMANDS
+// ****************************************
+// export function function_name(params) {
+//     rl.question('{question}', (name) => {
+//         var command = `{command}`;
+//         console.log(`Command Executed: ${command}`.brightBlue);
+//         shell.exec(`${command}`, (code, stdout, stderr) => {
+//             if (stderr) {
+//                 console.log(`Error: ${stderr}`);
+//             }
+//         });
+//     });
+// }
