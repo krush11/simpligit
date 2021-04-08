@@ -1,0 +1,32 @@
+{
+  "name": "simpligit",
+  "version": "1.0.0",
+  "description": "A simple guided CLI for git",
+  "main": "bin/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/krush11/simpligit.git"
+  },
+  "keywords": [
+    "git",
+    "cli"
+  ],
+  "author": "Krushnal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/krush11/simpligit/issues"
+  },
+  "homepage": "https://github.com/krush11/simpligit",
+  "bin": {
+    "simpligit": "./bin/index.js"
+  },
+  "dependencies": {
+    "colors": "^1.4.0",
+    "esm": "^3.2.25",
+    "shelljs": "^0.8.4",
+    "yargs": "^16.2.0"
+  }
+}
