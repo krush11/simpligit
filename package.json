@@ -1,6 +1,6 @@
 {
   "name": "simpligit",
-  "version": "1.0.2",
+  "version": "0.1.0",
   "description": "A simple guided CLI for git",
   "main": "bin/index.js",
   "scripts": {
