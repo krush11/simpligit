@@ -3,7 +3,7 @@
 require = require('esm')(module);
 const yargs = require('yargs');
 
-const usage = "SimpliGit \n";
+const usage = "\nSimpliGit ";
 const options = yargs
     .usage(usage)
     .help(true)

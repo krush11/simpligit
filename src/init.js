@@ -31,10 +31,12 @@ export function commands_list() {
 
 const main_menu = [
     "git init                           - Initialize empty git repository",
+    "git remote add origin <url>        - Add origin url",
     "git add .                          - Stage all changes",
     "git add <file>                     - Stage selected changes",
     "git commit -m <commit message>     - Commit changes",
     "git push origin <branch>           - Push changes to a branch",
+    "git pusll origin <branch>          - Pull code from a branch",
     "Exit                               - Exit CLI"
 ];
 
