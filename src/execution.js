@@ -11,8 +11,9 @@ export function init() {
     var command = "git init";
     console.log(`Command Executed: ${command}`.brightBlue);
     shell.exec(`${command}`, (code, stdout, stderr) => {
-        console.log(stdout);
-        if (stderr) {
+        if (code == 0)
+            process.exit(0);
+        else if (stderr) {
             console.log(`Error: ${stderr}`);
         }
     });
@@ -23,8 +24,9 @@ export function add_origin() {
         var command = `git remote add origin ${name}`;
         console.log(`Command Executed: ${command}`.brightBlue);
         shell.exec(`${command}`, (code, stdout, stderr) => {
-            console.log(1);
-            if (stderr) {
+            if (code == 0)
+                process.exit(0);
+            else if (stderr) {
                 console.log(`Error: ${stderr}`);
             }
         });
@@ -35,7 +37,9 @@ export function add_all() {
     var command = "git add .";
     console.log(`Command Executed: ${command}`.brightBlue);
     shell.exec(`${command}`, (code, stdout, stderr) => {
-        if (stderr) {
+        if (code == 0)
+            process.exit(0);
+        else if (stderr) {
             console.log(`Error: ${stderr}`);
         }
     });
@@ -46,7 +50,9 @@ export function add_specifics() {
         var command = `git add ${name}`;
         console.log(`Command Executed: ${command}`.brightBlue);
         shell.exec(`${command}`, (code, stdout, stderr) => {
-            if (stderr) {
+            if (code == 0)
+                process.exit(0);
+            else if (stderr) {
                 console.log(`Error: ${stderr}`);
             }
         });
@@ -58,7 +64,9 @@ export function commit() {
         var command = `git commit -m ${name}`;
         console.log(`Command Executed: ${command}`.brightBlue);
         shell.exec(`${command}`, (code, stdout, stderr) => {
-            if (stderr) {
+            if (code == 0)
+                process.exit(0);
+            else if (stderr) {
                 console.log(`Error: ${stderr}`);
             }
         });
@@ -70,7 +78,9 @@ export function push_code() {
         var command = `git push origin ${name}`;
         console.log(`Command Executed: ${command}`.brightBlue);
         shell.exec(`${command}`, (code, stdout, stderr) => {
-            if (stderr) {
+            if (code == 0)
+                process.exit(0);
+            else if (stderr) {
                 console.log(`Error: ${stderr}`);
             }
         });
@@ -82,10 +92,24 @@ export function pull_code() {
         var command = `git pull origin ${name}`;
         console.log(`Command Executed: ${command}`.brightBlue);
         shell.exec(`${command}`, (code, stdout, stderr) => {
-            if (stderr) {
+            if (code == 0)
+                process.exit(0);
+            else if (stderr) {
                 console.log(`Error: ${stderr}`);
             }
         });
+    });
+};
+
+export function status() {
+    var command = `git status`;
+    console.log(`Command Executed: ${command}`.brightBlue);
+    shell.exec(`${command}`, (code, stdout, stderr) => {
+        if (code == 0)
+            process.exit(0);
+        else if (stderr) {
+            console.log(`Error: ${stderr}`);
+        }
     });
 };
 
