@@ -1,6 +1,7 @@
 const colors = require('colors');
 import readline from 'readline-promise';
 const Commands = require('./commands');
+const process = require('process');
 
 const rl = readline.createInterface({
     input: process.stdin,

@@ -1,6 +1,7 @@
 const _init = require('./init');
 const execution = require('./execution');
 const pjson = require('../package.json');
+const process = require('process');
 
 function help() {
     console.log(`

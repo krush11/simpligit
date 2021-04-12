@@ -1,5 +1,5 @@
 const execute = require('./execution');
-
+const process = require('process');
 export function initiate_command(input) {
     if (input == 1)
         execute.init();
