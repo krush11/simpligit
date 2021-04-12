@@ -1,5 +1,5 @@
 const shell = require('shelljs');
-import readline from 'readline-promise';
+const readline = require('readline-promise').default;
 
 const rl = readline.createInterface({
     input: process.stdin,
@@ -7,108 +7,111 @@ const rl = readline.createInterface({
     terminal: true
 });
 
-export function init() {
+function init() {
     var command = "git init";
     console.log(`\nCommand Executed: ${command}\n`.brightBlue);
     shell.exec(`${command}`, (code, stdout, stderr) => {
-        if (code == 0)
-            process.exit(0);
-        else if (stderr) {
+        if (stderr) {
             console.log(`Error: ${stderr}`);
         }
+        return stdout;
     });
 };
 
-export function add_origin() {
+function add_origin() {
     rl.questionAsync('Enter remote url: ').then(name => {
         var command = `git remote add origin ${name}`;
         console.log(`\nCommand Executed: ${command}\n`.brightBlue);
         shell.exec(`${command}`, (code, stdout, stderr) => {
-            if (code == 0)
-                process.exit(0);
-            else if (stderr) {
+            if (stderr) {
                 console.log(`Error: ${stderr}`);
             }
+            return stdout;
         });
     });
 };
 
-export function add_all() {
+function add_all() {
     var command = "git add .";
     console.log(`\nCommand Executed: ${command}\n`.brightBlue);
     shell.exec(`${command}`, (code, stdout, stderr) => {
-        if (code == 0)
-            process.exit(0);
-        else if (stderr) {
+        if (stderr) {
             console.log(`Error: ${stderr}`);
         }
+        return stdout;
     });
 };
 
-export function add_specifics() {
+function add_specifics() {
     rl.questionAsync('List all the files w.r.t to package: ').then(name => {
         var command = `git add ${name}`;
         console.log(`\nCommand Executed: ${command}\n`.brightBlue);
         shell.exec(`${command}`, (code, stdout, stderr) => {
-            if (code == 0)
-                process.exit(0);
-            else if (stderr) {
+            if (stderr) {
                 console.log(`Error: ${stderr}`);
             }
+            return stdout;
         });
     });
 };
 
-export function commit() {
+function commit() {
     rl.questionAsync('Enter commit message: ').then(name => {
         var command = `git commit -m ${name}`;
         console.log(`\nCommand Executed: ${command}\n`.brightBlue);
         shell.exec(`${command}`, (code, stdout, stderr) => {
-            if (code == 0)
-                process.exit(0);
-            else if (stderr) {
+            if (stderr) {
                 console.log(`Error: ${stderr}`);
             }
+            return stdout;
         });
     });
 };
 
-export function push_code() {
+function push_code() {
     rl.questionAsync('Enter remote branch: ').then(name => {
         var command = `git push origin ${name}`;
         console.log(`\nCommand Executed: ${command}\n`.brightBlue);
         shell.exec(`${command}`, (code, stdout, stderr) => {
-            if (code == 0)
-                process.exit(0);
-            else if (stderr) {
+            if (stderr) {
                 console.log(`Error: ${stderr}`);
             }
+            return stdout;
         });
     });
 };
 
-export function pull_code() {
+function pull_code() {
     rl.question('Enter remote branch', (name) => {
         var command = `git pull origin ${name}`;
         console.log(`\nCommand Executed: ${command}\n`.brightBlue);
         shell.exec(`${command}`, (code, stdout, stderr) => {
-            if (code == 0)
-                process.exit(0);
-            else if (stderr) {
+            if (stderr) {
                 console.log(`Error: ${stderr}`);
             }
+            return stdout;
         });
     });
 };
 
-export function status() {
+function status() {
     var command = `git status`;
     console.log(`\nCommand Executed: ${command}\n`.brightBlue);
     shell.exec(`${command}`, (code, stdout, stderr) => {
-        if (code == 0)
-            process.exit(0);
-        else if (stderr) {
+        if (stderr) {
             console.log(`Error: ${stderr}`);
         }
+        return stdout;
     });
+};
+
+module.exports = {
+    add_all,
+    add_origin,
+    add_specifics,
+    commit,
+    init,
+    pull_code,
+    push_code,
+    status,
 };
