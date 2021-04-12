@@ -9,7 +9,7 @@ const rl = readline.createInterface({
 
 export function init() {
     var command = "git init";
-    console.log(`Command Executed: ${command}`.brightBlue);
+    console.log(`\nCommand Executed: ${command}\n`.brightBlue);
     shell.exec(`${command}`, (code, stdout, stderr) => {
         if (code == 0)
             process.exit(0);
@@ -22,7 +22,7 @@ export function init() {
 export function add_origin() {
     rl.questionAsync('Enter remote url: ').then(name => {
         var command = `git remote add origin ${name}`;
-        console.log(`Command Executed: ${command}`.brightBlue);
+        console.log(`\nCommand Executed: ${command}\n`.brightBlue);
         shell.exec(`${command}`, (code, stdout, stderr) => {
             if (code == 0)
                 process.exit(0);
@@ -35,7 +35,7 @@ export function add_origin() {
 
 export function add_all() {
     var command = "git add .";
-    console.log(`Command Executed: ${command}`.brightBlue);
+    console.log(`\nCommand Executed: ${command}\n`.brightBlue);
     shell.exec(`${command}`, (code, stdout, stderr) => {
         if (code == 0)
             process.exit(0);
@@ -48,7 +48,7 @@ export function add_all() {
 export function add_specifics() {
     rl.questionAsync('List all the files w.r.t to package: ').then(name => {
         var command = `git add ${name}`;
-        console.log(`Command Executed: ${command}`.brightBlue);
+        console.log(`\nCommand Executed: ${command}\n`.brightBlue);
         shell.exec(`${command}`, (code, stdout, stderr) => {
             if (code == 0)
                 process.exit(0);
@@ -62,7 +62,7 @@ export function add_specifics() {
 export function commit() {
     rl.questionAsync('Enter commit message: ').then(name => {
         var command = `git commit -m ${name}`;
-        console.log(`Command Executed: ${command}`.brightBlue);
+        console.log(`\nCommand Executed: ${command}\n`.brightBlue);
         shell.exec(`${command}`, (code, stdout, stderr) => {
             if (code == 0)
                 process.exit(0);
@@ -76,7 +76,7 @@ export function commit() {
 export function push_code() {
     rl.questionAsync('Enter remote branch: ').then(name => {
         var command = `git push origin ${name}`;
-        console.log(`Command Executed: ${command}`.brightBlue);
+        console.log(`\nCommand Executed: ${command}\n`.brightBlue);
         shell.exec(`${command}`, (code, stdout, stderr) => {
             if (code == 0)
                 process.exit(0);
@@ -90,7 +90,7 @@ export function push_code() {
 export function pull_code() {
     rl.question('Enter remote branch', (name) => {
         var command = `git pull origin ${name}`;
-        console.log(`Command Executed: ${command}`.brightBlue);
+        console.log(`\nCommand Executed: ${command}\n`.brightBlue);
         shell.exec(`${command}`, (code, stdout, stderr) => {
             if (code == 0)
                 process.exit(0);
@@ -103,7 +103,7 @@ export function pull_code() {
 
 export function status() {
     var command = `git status`;
-    console.log(`Command Executed: ${command}`.brightBlue);
+    console.log(`\nCommand Executed: ${command}\n`.brightBlue);
     shell.exec(`${command}`, (code, stdout, stderr) => {
         if (code == 0)
             process.exit(0);
@@ -112,18 +112,3 @@ export function status() {
         }
     });
 };
-
-// ****************************************
-// A SKELETON FUNCTION TO ADD MORE COMMANDS
-// ****************************************
-// export function function_name(params) {
-//     rl.question('{question}', (name) => {
-//         var command = `{command}`;
-//         console.log(`Command Executed: ${command}`.brightBlue);
-//         shell.exec(`${command}`, (code, stdout, stderr) => {
-//             if (stderr) {
-//                 console.log(`Error: ${stderr}`);
-//             }
-//         });
-//     });
-// }
