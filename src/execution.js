@@ -1,5 +1,6 @@
 const shell = require('shelljs');
 const readline = require('readline-promise').default;
+const process = require('process');
 
 const rl = readline.createInterface({
     input: process.stdin,
@@ -9,7 +10,7 @@ const rl = readline.createInterface({
 
 function init() {
     var command = "git init";
-    console.log(`\nCommand Executed: ${command}\n`.brightBlue);
+    console.log(`Command Executed: ${command}\n`.brightBlue);
     shell.exec(`${command}`, (code, stdout, stderr) => {
         if (stderr) {
             console.log(`Error: ${stderr}`);
@@ -21,7 +22,7 @@ function init() {
 function add_origin() {
     rl.questionAsync('Enter remote url: ').then(name => {
         var command = `git remote add origin ${name}`;
-        console.log(`\nCommand Executed: ${command}\n`.brightBlue);
+        console.log(`Command Executed: ${command}\n`.brightBlue);
         shell.exec(`${command}`, (code, stdout, stderr) => {
             if (stderr) {
                 console.log(`Error: ${stderr}`);
@@ -33,7 +34,7 @@ function add_origin() {
 
 function add_all() {
     var command = "git add .";
-    console.log(`\nCommand Executed: ${command}\n`.brightBlue);
+    console.log(`Command Executed: ${command}\n`.brightBlue);
     shell.exec(`${command}`, (code, stdout, stderr) => {
         if (stderr) {
             console.log(`Error: ${stderr}`);
@@ -45,7 +46,7 @@ function add_all() {
 function add_specifics() {
     rl.questionAsync('List all the files w.r.t to package: ').then(name => {
         var command = `git add ${name}`;
-        console.log(`\nCommand Executed: ${command}\n`.brightBlue);
+        console.log(`Command Executed: ${command}\n`.brightBlue);
         shell.exec(`${command}`, (code, stdout, stderr) => {
             if (stderr) {
                 console.log(`Error: ${stderr}`);
@@ -58,7 +59,7 @@ function add_specifics() {
 function commit() {
     rl.questionAsync('Enter commit message: ').then(name => {
         var command = `git commit -m ${name}`;
-        console.log(`\nCommand Executed: ${command}\n`.brightBlue);
+        console.log(`Command Executed: ${command}\n`.brightBlue);
         shell.exec(`${command}`, (code, stdout, stderr) => {
             if (stderr) {
                 console.log(`Error: ${stderr}`);
@@ -71,7 +72,7 @@ function commit() {
 function push_code() {
     rl.questionAsync('Enter remote branch: ').then(name => {
         var command = `git push origin ${name}`;
-        console.log(`\nCommand Executed: ${command}\n`.brightBlue);
+        console.log(`Command Executed: ${command}\n`.brightBlue);
         shell.exec(`${command}`, (code, stdout, stderr) => {
             if (stderr) {
                 console.log(`Error: ${stderr}`);
@@ -84,7 +85,7 @@ function push_code() {
 function pull_code() {
     rl.question('Enter remote branch', (name) => {
         var command = `git pull origin ${name}`;
-        console.log(`\nCommand Executed: ${command}\n`.brightBlue);
+        console.log(`Command Executed: ${command}\n`.brightBlue);
         shell.exec(`${command}`, (code, stdout, stderr) => {
             if (stderr) {
                 console.log(`Error: ${stderr}`);
@@ -96,7 +97,7 @@ function pull_code() {
 
 function status() {
     var command = `git status`;
-    console.log(`\nCommand Executed: ${command}\n`.brightBlue);
+    console.log(`Command Executed: ${command}\n`.brightBlue);
     shell.exec(`${command}`, (code, stdout, stderr) => {
         if (stderr) {
             console.log(`Error: ${stderr}`);

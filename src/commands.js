@@ -1,7 +1,6 @@
 const execute = require('./execution');
 
 export function initiate_command(input) {
-    console.log(input);
     if (input == 1)
         execute.init();
     else if (input == 2)
