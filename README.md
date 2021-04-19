@@ -19,7 +19,6 @@ npm i -g simpligit
 2. Install from source
 ```bash
 git clone https://github.com/krush11/simpligit simpligit
-npm install
 npm install -g .
 ```
 See [package source](https://github.com/krush11/simpligit) for more details
