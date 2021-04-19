@@ -8,8 +8,8 @@ function help() {
 SimpliGit
 
 Options:
-    --version  Show version number                                       [boolean]
-    --help     Show help                                                 [boolean]
+    --version  Show version number                 [boolean]
+    --help     Show help                           [boolean]
     `);
     process.exit(0);
 }
